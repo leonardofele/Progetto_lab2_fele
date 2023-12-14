@@ -99,7 +99,6 @@ void termina_tabella(ENTRY *testa){
 //crea la entry: alloca sia la stringa (la chiave del valore nella tabella hash), alloca data e lo alloca come coppia dove al suo interno è persente il valore inizializato 1 e il puntatore alla lista che per ora è inizializzato a NULL  
 ENTRY *crea_entry(char *s)
 {
-
   ENTRY *e = malloc(sizeof(ENTRY));
   if (e == NULL){
     termina("errore malloc entry 1");
@@ -127,7 +126,7 @@ ENTRY *crea_entry(char *s)
   }
   *((coppia *) e->data)->valore  = 1;
   
-  ((coppia*) e->data)->next = NULL;
+  ((coppia *) e->data)->next = NULL;
 
   return e;
 }
@@ -143,8 +142,8 @@ void aggiungi(char *s, ENTRY **testa)
     if (sup == NULL) {
       distruggi_entry(ris);
       termina("problema hsearch");
-    } 
-    coppia *c = (coppia *)ris->data; 
+    }
+    coppia *c = (coppia *)ris->data;
     c->next = *testa;
     *testa = ris;
   }
@@ -515,6 +514,7 @@ void *funz_gest_segnali(void *arg)
     {
       write_lock(a->secure);
       termina_tabella(*(a->testa_lista_entry));
+      *(a->testa_lista_entry) = NULL;
       hdestroy();
       *(a->N_aggiungi) = 0;
       hcreate(Num_elem);

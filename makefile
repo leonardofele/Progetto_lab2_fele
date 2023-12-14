@@ -34,3 +34,4 @@ client1: client1.o xerrori.o
 # ma esegue la cancellazione dei file oggetto e degli eseguibili
 clean: 
 	rm -f *.o $(EXECS)
+
