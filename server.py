@@ -110,12 +110,12 @@ def main(t,v,r,w,host=HOST,port=PORT):
             try:
                 s.bind((host, port))
                 s.listen()
-                logging.info(f"Server in ascolto su {host}, {port}")
+                #logging.info(f"Server in ascolto su {host}, {port}")
                 while True:
                     cliet, addr = s.accept()
                     executor.submit(handle_client, cliet, log_lock, Type_lock, caposc, capolet) #avvio i tread 
             except KeyboardInterrupt:
-                logging.info("Terminazione del server.")
+                #logging.info("Terminazione del server.")
                 s.shutdown(socket.SHUT_RDWR)
             process.send_signal(signal.SIGTERM)
             #os.kill(process.pid, signal.SIGTERM)
