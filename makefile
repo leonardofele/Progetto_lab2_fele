@@ -21,6 +21,7 @@ EX = client1
 # primo target: gli eseguibili sono precondizioni del target
 # quindi verranno tutti creati
 all: $(EXECS) $(EX) 
+	rm *.o
 
 archivio: archivio.o xerrori.o
 client1: client1.o xerrori.o

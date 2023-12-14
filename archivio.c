@@ -516,7 +516,7 @@ void *funz_gest_segnali(void *arg)
       write_lock(a->secure);
       termina_tabella(*(a->testa_lista_entry));
       hdestroy();
-      a->N_aggiungi = 0;
+      *(a->N_aggiungi) = 0;
       hcreate(Num_elem);
       write_unlock(a->secure);
     }
